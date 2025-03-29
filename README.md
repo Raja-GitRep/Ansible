@@ -1,27 +1,29 @@
-Git init
-Git status
+git init
+git status
 
 Working directory 
 
-Git add <filename> 
+git add <filename> 
 
 Staging
 
-Git commit -m "comments"
+git commit -m "comments"
 
 Local Repository
 
-Git push
+git push
 
 Remote Repository
 
-Git init
-Git staus
-Git add <filename>
-Git commit -m "comments"
-Git branch -M main
-Git remote add origin https://github.com/Raja-GitRep/Ansible.git
-Git push -u origin main
+git init
+git staus
+git add <filename>
+git commit -m "comments"
+git branch -M main
+git remote add origin https://github.com/Raja-GitRep/Ansible.git
+git push -u origin main
 
 
 git branch
+
+git clone
