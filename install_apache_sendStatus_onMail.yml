@@ -1,0 +1,15 @@
+---
+- name: install apache and send status on mail
+  gather_facts: no
+  hosts: localhost
+  tasks:
+    - name: install apache
+      yum:
+        name: httpd
+        state: present
+      register: apache_install_status
+
+    - name: check apache status
+      command: systemctl status httpd
+      register: apache_status
+      when: apache_install_status.changed

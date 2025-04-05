@@ -1,0 +1,25 @@
+---
+- name: Gather facts about the system
+  hosts: localhost
+  gather_facts: yes
+  tasks:
+    - name: Display system information
+      debug:
+        msg: "System Information: {{ ansible_facts }}"
+    
+    - name: Display OS information
+      debug:
+        msg: "Operating System: {{ ansible_distribution }} {{ ansible_distribution_version }}"
+    
+    - name: Display CPU information
+      debug:
+        msg: "CPU Model: {{ ansible_processor[0] }}"
+    
+    - name: Display Memory information
+      debug:
+        msg: "Total Memory: {{ ansible_memtotal_mb }} MB"
+    
+    - name: Display Disk information
+      debug:
+        msg: "Disk Size: {{ ansible_devices['sda']['size'] }}"
+        

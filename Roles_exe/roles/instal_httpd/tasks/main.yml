@@ -1,0 +1,5 @@
+- name: install HTTPD
+  package:
+   name: httpd
+   state: present
+    

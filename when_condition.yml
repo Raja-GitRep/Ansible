@@ -1,0 +1,14 @@
+---
+- name: Example playbook with when condition
+  hosts: localhost
+  gather_facts: yes
+  tasks:
+    - name: Display a message if the OS is Ubuntu
+      debug:
+        msg: "This system is running Ubuntu!"
+      when: ansible_distribution == "Ubuntu"
+
+    - name: Display a message if the total memory is greater than 4GB
+      debug:
+        msg: "This system has more than 4GB of memory!"
+      when: ansible_memtotal_mb > 4096

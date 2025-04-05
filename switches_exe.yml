@@ -1,0 +1,16 @@
+---
+- name: switches execution playbook
+  hosts: localhost
+  gather_facts: no
+  vars:
+    user_name: ansible
+    user_password: ansible
+      
+  tasks:
+    - name: create user ansible
+      user:
+        name: "{{ user_name }}"
+        password: "{{ user_password }}"
+        state: present
+      become: yes
+     
