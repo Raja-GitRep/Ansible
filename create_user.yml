@@ -1,0 +1,12 @@
+---
+- name: create user 
+  hosts: localhost
+  gather_facts: no
+  become: yes
+  
+  tasks:
+    - name: create user Akhila
+      user:
+        name: Akhila
+        state: present
+      

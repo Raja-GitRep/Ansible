@@ -1,0 +1,8 @@
+---
+- name: Install Git and HTTPD
+  hosts: localhost
+  become: true
+  gather_facts: false
+  roles:
+    - role: instal_git
+    - role: instal_httpd

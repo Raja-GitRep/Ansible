@@ -1,0 +1,44 @@
+---
+- name: Check HTTP status of websites
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Check HTTP status of Google
+      uri:
+        url: "https://www.google.com/"
+        return_content: no
+      register: google_status
+
+    - name: Check HTTP status of Raja
+      uri:
+        url: "https://www.raja.com/"
+        return_content: no
+      register: raja_status
+
+    - name: Display Google status
+      debug:
+        msg: "Google HTTP Status: {{ google_status.status }}"
+
+    - name: Display Raja status
+      debug:
+        msg: "Raja HTTP Status: {{ raja_status.status }}"
+
+    - name: Check if Google is reachable
+      assert:
+        that:
+          - google_status.status == 200
+        fail_msg: "Google is not reachable. Status: {{ google_status.status }}"
+        success_msg: "Google is reachable. Status: {{ google_status.status }}"
+    - name: Check if Raja is reachable
+      assert:
+        that:
+          - raja_status.status == 200
+        fail_msg: "Raja is not reachable. Status: {{ raja_status.status }}"
+        success_msg: "Raja is reachable. Status: {{ raja_status.status }}"
+    
+    - name: Create a folder with name Siva and set permissions to 777
+      file:
+        path: /home/raju/Siva
+        state: directory
+        mode: '0777'
+      

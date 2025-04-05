@@ -1,0 +1,20 @@
+---
+- name: Example2 playbook with loop
+  hosts: localhost
+  gather_facts: no
+  vars:
+    fruit_list:
+      - apple
+      - banana
+      - cherry
+      - mango
+  tasks:
+   - name: loop through a list of fruits
+     debug:
+       msg: "I like {{ fruit }} is available in the list at index {{ index }}"
+     loop: "{{ fruit_list }}"
+     loop_control:
+       index_var: index
+       loop_var: fruit  # This is the variable name used in the loop instatead of item
+    
+      
